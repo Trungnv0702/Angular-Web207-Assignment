@@ -1,0 +1,102 @@
+
+<h4>{{content}}</h4>
+<div  *ngIf="currentUser">
+<div class="content">
+  <div style="width: 65%; float: left;">
+
+    <form [formGroup]="form" (ngSubmit)="addNewProduct()" id="contactform" name="contact" method="post" action="#"
+      style="margin-left: 30px;">
+      <h4 style="text-align: center;">Add new product</h4>
+      <hr style=" border: 5px solid rgb(127, 136, 127); border-radius: 5px; width: 50%;">
+
+      <div class="row">
+        <label for="name">Name product: </label>
+        <input formControlName="name" style="width: 90%;" type="text" [(ngModel)]  = 'productPreview.name' name="name" id="nameproduct" class="txt" tabindex="1"
+          placeholder="Lamboghini Aventador" required>
+      </div>
+      <!-- Báo lỗi input name -->
+      <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger"> 
+        <div *ngIf="f.price.errors.pattern">Do not enter a space</div>
+        <div *ngIf="f.name.errors.required">Name is required.</div>
+        <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+       
+      </div>
+
+      <div class="row">
+        <label for="name">Price: </label> <br>
+        <input formControlName="price" style="width: 90%;" type="text" [(ngModel)]  = 'productPreview.price' name="name" id="price" class="txt" tabindex="1"
+          placeholder="USD" required>
+      </div>
+      <!-- Báo lỗi price -->
+      <div *ngIf="f.price.touched && f.price.invalid" class="alert alert-danger">
+        <div *ngIf="f.price.errors.required">Price is required.</div>
+        <div *ngIf="f.price.errors.minlength">Price should be 1 character.</div>
+        <div *ngIf="f.price.errors.pattern">Price only number</div>
+        
+      </div>
+
+
+      <div class="row">
+        <label for="name">Image: </label> <br>
+        <input type='file' formControlName="image" #imageInput accept="image/*" (change)="imageInputChange(imageInput)">
+      </div>
+      <div *ngIf="f.image.touched && f.image.invalid" class="alert alert-danger">
+        <div *ngIf="f.image.errors.required">image is required.</div>
+      
+        
+      </div>
+
+
+
+      <div class="row">
+        <label for="message">Descriptor:</label> <br>
+        <textarea formControlName="descriptor" style="width: 90%;" [(ngModel)]  = 'productPreview.descriptor' placeholder="faster and stronger" name="message"
+          id="descriptor" class="txtarea" tabindex="4" required></textarea>
+      </div>
+
+      <div *ngIf="f.descriptor.touched && f.descriptor.invalid" class="alert alert-danger">
+        <div *ngIf="f.price.errors.pattern">Do not enter a space</div>
+        <div *ngIf="f.descriptor.errors.required">Descriptor is required.</div>
+      </div>
+
+      <div class="center">
+        <!-- <button class="button button1" (click)="addNewProduct()">SAVE</button> -->
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Preview -->
+  <div style="width: 35%; float: right;">
+    <h4 style="text-align: center;">Preview</h4>
+    <hr style=" border: 5px solid rgb(127, 136, 127); border-radius: 5px; width: 50%;">
+    <div class="row">
+      <label for="name">Name product: </label>
+      &nbsp; &nbsp; <input style="width: 90%; border: #F9F9F9 0px ; background-color: #F9F9F9;"
+        [(ngModel)]="productPreview.name" type="text" name="name" id="-product" class="txt" tabindex="1" required readonly
+        disabled>
+
+    </div>
+
+    <div class="row">
+      <label for="name">Price: </label> <br>
+      <input style="width: 90%; border: #F9F9F9 0px ; background-color: #F9F9F9;" [(ngModel)]="productPreview.price"
+        type="text" name="name" id="name2" class="txt" tabindex="1" required>
+    </div>
+
+    <div class="row">
+      <label for="name">Image: </label> <br>
+      <img *ngIf='imagesTemp' [src]="imagesTemp" alt="Red dot" />
+    </div>
+
+
+    <div class="row">
+      <label for="message">Descriptor:</label> <br>
+      <textarea style="width: 90%; border: #F9F9F9 0px ; background-color: #F9F9F9;" [(ngModel)]="productPreview.descriptor"
+        name="message" id="message" class="txtarea" tabindex="4" required></textarea>
+    </div>
+
+
+  </div>
+</div>
+</div>

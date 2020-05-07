@@ -1,0 +1,99 @@
+
+    
+    <!-- table -->
+    <div  *ngIf="currentUser">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Tìm kiếm:</span>
+      </div>
+      <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" class="form-control" placeholder="Search.." aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="table" >
+      <div id="demo">
+        <div class="table-responsive-vertical shadow-z-1">
+          <!-- Table starts here -->
+          <h4 style="text-align: center;">Product List</h4>
+          <hr style=" border: 5px solid rgb(127, 136, 127); border-radius: 5px; width: 40%;">
+          <table id="table" class="table table-hover table-mc-light-blue">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th >Name product</th>
+                <th >Image</th>
+                <th>Price</th>
+                <th>Descriptor</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products | filter:searchText | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i=index   ">
+                <td data-title="ID">{{i+1}}</td>
+                <td data-title="ID">{{product.id}}</td>
+                <td data-title="Name">{{product.name}}</td>
+                <td data-title="Link">
+                  <img style="height: 100px; width: 650px; border-radius: 7px; margin-top: 10px;" [src]="product.image" alt="">
+                </td>
+                <td data-title="Status">{{product.price}}</td>
+                <td data-title="Status">{{product.descriptor}}</td>
+                <td data-title="Status"><button class="button button2" (click)="deleteProduct(product.id)">DELETE</button>
+                  <br>
+                  <button class="button button3" routerLink="/admin/edit/{{product.id}}">EDIT</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="nv-sl-bar">
+                      <ngb-pagination  [(page)]="page" [pageSize]="pageSize" [collectionSize]="products.length">
+                      </ngb-pagination>
+                  </div>
+        </div>
+  
+        <!-- Table Constructor change table classes, you don't need it in your project -->
+        <div style="width: 45%; display: inline-block; vertical-align: top">
+          <label for="table-bordered">Style: bordered</label>
+          <select id="table-bordered" name="table-bordered">
+            <option selected value="">No</option>
+            <option value="table-bordered">Yes</option>
+          </select>
+  
+          &nbsp;&nbsp;&nbsp;
+          <label for="table-striped">Style: striped</label>
+          <select id="table-striped" name="table-striped">
+            <option selected value="">No</option>
+            <option value="table-striped">Yes</option>
+          </select>
+  
+  
+          <label for="table-hover">Style: hover</label>
+          <select id="table-hover" name="table-hover">
+            <option value="">No</option>
+            <option selected value="table-hover">Yes</option>
+          </select>
+  
+          &nbsp;&nbsp;&nbsp;
+          <label for="table-color">Style: color</label>
+          <select id="table-color" name="table-color">
+            <option value="">Default</option>
+            <option value="table-mc-red">Red</option>
+            <option value="table-mc-pink">Pink</option>
+            <option value="table-mc-purple">Purple</option>
+            <option value="table-mc-deep-purple">Deep Purple</option>
+            <option value="table-mc-indigo">Indigo</option>
+            <option value="table-mc-blue">Blue</option>
+            <option selected value="table-mc-light-blue">Light Blue</option>
+            <option value="table-mc-cyan">Cyan</option>
+            <option value="table-mc-teal">Teal</option>
+            <option value="table-mc-green">Green</option>
+            <option value="table-mc-light-green">Light Green</option>
+            <option value="table-mc-lime">Lime</option>
+            <option value="table-mc-yellow">Yellow</option>
+            <option value="table-mc-amber">Amber</option>
+            <option value="table-mc-orange">Orange</option>
+            <option value="table-mc-deep-orange">Deep Orange</option>
+          </select>
+  
+        </div>
+      </div>
+  
+    </div>
+  </div>

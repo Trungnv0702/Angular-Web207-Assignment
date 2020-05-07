@@ -1,0 +1,63 @@
+<div  *ngIf="currentUser">
+<div >
+  <form [formGroup]="form"  id="contactform" name="contact" method="post" action="#"
+      style="margin-left: 30px;">
+      <h4 style="text-align: center;">Update product</h4>
+      <hr style=" border: 5px solid rgb(127, 136, 127); border-radius: 5px; width: 50%;">
+
+      <div class="row">
+        <label for="name">Name product: </label> <br>
+        <input formControlName="name" style="width: 90%;" type="text" [(ngModel)]  = 'product.name' name="name" id="nameproduct" class="txt" tabindex="1"
+          placeholder="Lamboghini Aventador" required>
+      </div>
+      <!-- Báo lỗi input name -->
+      <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger"> 
+        <div *ngIf="f.name.errors.required">Name is required.</div>
+        <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+      </div>
+
+      <div class="row">
+        <label for="name">Price: </label> <br>
+        <input formControlName="price" style="width: 90%;" type="text" [(ngModel)]  = 'product.price' name="name" id="price" class="txt" tabindex="1"
+          placeholder="USD" required>
+      </div>
+      <!-- Báo lỗi price -->
+      <div *ngIf="f.price.touched && f.price.invalid" class="alert alert-danger">
+        <div *ngIf="f.price.errors.required">Price is required.</div>
+        <div *ngIf="f.price.errors.minlength">Price should be 1 character.</div>
+        <div *ngIf="f.price.errors.pattern">Price only number</div>
+        
+      </div>
+
+
+      <div class="row">
+        <label for="name">Image: </label> <br>
+        <input type='file' formControlName="image" (change)="onSelectFile($event)">
+           <img style="display: block; margin-left: auto; margin-right: auto;" *ngIf='product.image' [src]="product.image" alt="Red dot" />
+      </div>
+      <div *ngIf="f.image.touched && f.image.invalid" class="alert alert-danger">
+        <div *ngIf="f.image.errors.required">image is required.</div>
+      
+     
+      </div>
+
+
+
+      <div class="row">
+        <label for="message">Descriptor:</label> <br>
+        <textarea formControlName="descriptor" style="width: 90%;" [(ngModel)]  = 'product.descriptor' placeholder="faster and stronger" name="message"
+          id="descriptor" class="txtarea" tabindex="4" required></textarea>
+      </div>
+
+      <div *ngIf="f.descriptor.touched && f.descriptor.invalid" class="alert alert-danger">
+        <div *ngIf="f.descriptor.errors.required">Descriptor is required.</div>
+      </div>
+
+      <div class="center">
+        <!-- <button class="button button1" (click)="addNewProduct()">SAVE</button> -->
+        <button class="btn btn-primary"  style="border-radius: 5px;" (click) = "updateProduct()" [disabled]="!form.valid">UPDATE</button> &nbsp;&nbsp;
+        <button style="background-color: red; border-radius: 5px;" class="btn btn-danger"  routerLink = "/admin/list-product"  [disabled]="!form.valid">CANCEL</button>
+        
+      </div>
+    </form>
+  </div>

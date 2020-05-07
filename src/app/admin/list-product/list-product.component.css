@@ -1,0 +1,67 @@
+
+  /* style button */
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 35%;
+}
+
+.button1 {
+  background-color: rgb(105, 216, 101); 
+  color: rgb(104, 101, 101); 
+  border: 2px solid rgb(105, 216, 101);
+  border-radius: 5px;
+  
+}
+
+.button1:hover {
+  background-color: rgb(75, 221, 80);
+  color: rgb(0, 0, 0);
+  
+}
+
+.button2 {
+  color: rgb(249, 249, 249);
+  border: 1px solid  #e4494a;
+  border-radius: 5px;
+  background-color: #e4494a;
+  padding: 5px 15px;
+  font-size: 12px;
+  margin: 16px 51px;
+  margin-left: 35%;
+}
+
+.button2:hover {
+  background-color: #e4494a;
+  color: rgb(2, 2, 2);
+  
+}
+
+/* btn edit */
+.button3 {
+  color: rgb(249, 249, 249);
+  border: 1px solid #47e25e;
+  border-radius: 5px;
+  background-color: #47e25e;
+  padding: 5px 23px;
+  font-size: 12px;
+  margin: 16px 51px;
+  margin-left: 35%;
+}
+
+.button3:hover {
+  background-color: #47e25e;
+  color: rgb(2, 2, 2);
+  
+}

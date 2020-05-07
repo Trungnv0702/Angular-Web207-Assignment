@@ -1,0 +1,30 @@
+<header>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="https://i.imgur.com/OF1g9tw.png" alt="logo" /></a>
+      </div>
+      <div class="navbar-collapse collapse ">
+        <ul class="nav navbar-nav">
+          <li class="active"><a routerLink="homes">Home</a></li>
+          <li><a routerLink="/about">about</a></li>
+          <li><a routerLink="/service">service</a></li>
+          <li><a routerLink="/portfolio">category</a></li>
+          <li><a routerLink="/contact">contact</a></li>
+          <li><a routerLink="/card">card</a></li>
+          <li><a routerLink="/admin" *ngIf="showAdminBoard">Admin Page</a></li>
+          <li><a routerLink="/login" >Login</a></li>
+          <li><a (click)="logout()" *ngIf="isLoggedIn">logout</a></li>
+          
+          
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

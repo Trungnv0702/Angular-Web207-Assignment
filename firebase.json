@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/TrungNVPH08694-Assignment-WEB207",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

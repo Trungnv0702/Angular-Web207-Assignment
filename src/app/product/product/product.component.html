@@ -1,0 +1,28 @@
+
+<h3 style="text-align: center;">Product</h3>
+
+<hr style=" border: 5px solid rgb(127, 136, 127); border-radius: 5px; width: 700px;">
+    
+<!-- Product -->
+<section>
+    <div class="container">
+        <div class="row service-v1 margin-bottom-40" style="padding-top: 30px;">
+            <div class="col-md-4 md-margin-bottom-40" *ngFor = "let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize, let i = index">
+              <a href="/product-detail/{{product.id}}"><img style="height: 200px; width: 100%;" class="img-responsive" [src]="product.image" alt=""></a>
+                
+                <span>
+                    <h2>{{product.name}}</h2>
+                    <p>{{product.descriptor}}</p>
+                    <h5>Price: {{product.price}} USD</h5>
+                    <button class="btn btn-primary" id={{product.id}} (click)="onCartUpdated($event)">Add to card</button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="nv-sl-bar" style="padding-left: 45%;">
+    <ngb-pagination  [(page)]="page" [pageSize]="pageSize" [collectionSize]="products.length">
+    </ngb-pagination>
+</div>
+<!-- end product -->

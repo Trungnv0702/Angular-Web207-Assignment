@@ -1,0 +1,5 @@
+
+export interface productVal {
+    productValidate;
+
+}
